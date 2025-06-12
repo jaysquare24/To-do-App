@@ -86,14 +86,15 @@ body.modal-open {
 .tasks-status-container {
   display: flex;
   justify-content: space-between;
-  margin: 13rem 1rem 0 ;
+  padding: 13rem 1rem 0 ;
+  height: calc(100vh - 120px - 5rem);          
+  overflow-y: auto;   
   
  .task-section{
    width: 30%;
    padding-bottom: 4rem;
    border: 1px solid white;
-   height: calc(100vh - 120px - 5rem);          
-   overflow-y: auto;      
+     
     
 
   }
@@ -351,7 +352,7 @@ li{
     flex-direction: column;
     align-items: center;
     margin: 0 auto 0 ;
-    padding-top: 15rem;
+    padding: 15rem 0 0;
     
    .fallback-message{
       font-size: 1.2rem;
@@ -511,7 +512,8 @@ li{
   
   .tasks-status-container {
       margin: 0 auto 0 ;
-      padding-top: 11rem;;
+      padding-top: 11rem;
+      height: calc(100vh - 120px - 2rem);
     .fallback-message{
       font-size: 1rem;
      
@@ -520,7 +522,6 @@ li{
     .task-section {
       width: 100%;
       margin-bottom: 1rem;
-      height: calc(100vh - 120px - 2rem);
       border: 2px solid white;
     }
 

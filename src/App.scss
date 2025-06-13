@@ -85,13 +85,14 @@ body.modal-open {
 }
 
 .tasks-status-container {
-  position: sticky;
-  
+  position: fixed;
+  top: 0;
  
-  width: 98%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 13rem auto 0;
+  margin: 13rem 0 0;
+  
   
   
  .task-section{
@@ -270,6 +271,7 @@ li{
       border: none;
       font-size: 1rem;
       border-radius: 5px;
+      color: white;
       cursor: pointer;
     }
 

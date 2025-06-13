@@ -1,18 +1,11 @@
 #root {
-  
   margin: 0;
   padding: 0;
- 
-
 }
 
 body{
   overflow: hidden;
-  
-  
 }
-
-
 
 body.modal-open {
   overflow: hidden;
@@ -27,14 +20,11 @@ body.modal-open {
 }
 
 .header{
-  
   position: fixed;
   top:0 ;
   left: 0;
   width: 100%;
   z-index: 2;
-
-
 
   h1{
     text-align: center;
@@ -52,10 +42,7 @@ body.modal-open {
     font-weight: bold;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.92);
-    
   }
-
-  
 }
 
 
@@ -77,23 +64,21 @@ body.modal-open {
     border-radius: 5px;
     cursor: pointer;
   }
+
   .new-task-button:hover {
     background-color: #0056b3;
   }
-  
-  
-  
 }
 
 .tasks-status-container {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;         
+  right: 0;
+  width: 98%;
   display: flex;
   justify-content: space-between;
-  margin: 13rem 0 0;
-  
-  
+  margin: 13rem auto 0;
   
  .task-section{
    width: 30%;
@@ -101,8 +86,6 @@ body.modal-open {
    border: 2px solid white;
    height: calc(100vh - 120px - 5rem);          
    overflow-y: auto;      
-    
-
   }
 
  h2{
@@ -140,7 +123,6 @@ li{
   margin-top: 0.5rem;
  
   .task-item{
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -153,7 +135,6 @@ li{
       flex-basis: 55%;
       word-break: normal;
       overflow-wrap: break-word;
-    
     }
 
     .todo-buttons{
@@ -162,7 +143,6 @@ li{
       justify-content: space-between;
       flex-shrink: 0;
       align-items: center;
-      
     }
 
     .task-buttons, .task-time{
@@ -216,7 +196,7 @@ li{
     cursor: pointer;
     font-size: 0.7rem;
     width: 100px;
-    text-decoration: underline;
+    text-decoration: underline !important;
   }
 
   .description{
@@ -242,6 +222,7 @@ li{
   border-radius: 5px;
   z-index: 4;
   text-align: center;
+  overflow: hidden;
 
   input, textarea{
     width: 100%;
@@ -477,11 +458,8 @@ li{
     }
     
     .quote-container{
-    
       font-size: 0.8rem;
       font-weight: 500;
-    
-      
     }
   }
 
@@ -499,7 +477,6 @@ li{
 
   .links{
    margin: 8rem auto 0 ;
-   
   }
   
   .links a {
@@ -593,7 +570,6 @@ li{
     .todo-summary {
       margin-top: 5px;
       font-size: 0.7rem;
-      text-decoration: underline;
       
     }
 
@@ -626,6 +602,5 @@ li{
       font-size: 0.7rem;
     }
   }
- 
 }
 

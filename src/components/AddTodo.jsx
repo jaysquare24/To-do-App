@@ -59,7 +59,7 @@ export const AddTodo = () => {
                         value={todoTitle}
                         onChange={(e) => setTodoTitle(e.target.value)}
                         placeholder="Add a task title"
-                    /> <br /> <br/>
+                    /> <br/> <br/>
                     <textarea
                         rows="4"
                         type="text"
@@ -68,7 +68,6 @@ export const AddTodo = () => {
                         placeholder="Add task description (optional)" 
                     /> <br/><br/>
                     <div className="buttons">
-                       
                         <button type="submit">Add Task</button>
                         <button type="button" onClick={onCloseModal}>Cancel</button>
                     </div>

@@ -87,7 +87,6 @@ body.modal-open {
 .tasks-status-container {
   position: fixed;
   top: 0;
- 
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -98,7 +97,7 @@ body.modal-open {
  .task-section{
    width: 30%;
    padding-bottom: 4rem;
-   border: 1px solid white;
+   border: 2px solid white;
    height: calc(100vh - 120px - 5rem);          
    overflow-y: auto;      
     
@@ -163,8 +162,6 @@ li{
       flex-shrink: 0;
       align-items: center;
       
-    
-      
     }
 
     .task-buttons, .task-time{
@@ -172,23 +169,19 @@ li{
       display: block;
 
       button{
-      
-      border: none;
-      padding: 5px 5px;
-      border-radius: 2px;
+        border: none;
+        padding: 5px 5px;
+        border-radius: 2px;
       
       }
 
     }
     
-
     .task-time{
       color: white;
       font-size: 0.6rem;
       font-weight: bold;
     }
-
-    
 
     button{
       background-color: #007bff;
@@ -269,7 +262,7 @@ li{
       background-color: #007bff;
       padding: 10px;
       border: none;
-      font-size: 1rem;
+      font-size: 1rem !important;
       border-radius: 5px;
       color: white;
       cursor: pointer;
@@ -342,6 +335,7 @@ li{
     text-decoration: none;
     border-radius: 5px;
     font-size: 1rem;
+    font-weight: 500;
   }
 
   a:hover{
@@ -369,6 +363,7 @@ li{
     .task-section {
       width: 100%;
       margin-bottom: 1rem;
+      padding-bottom: 8rem;
       border: 2px solid white;
       
     }
@@ -429,7 +424,6 @@ li{
       }
     }
 
-
     .todo-summary {
       margin-top: 5px;
       font-size: 1.1rem;
@@ -458,7 +452,7 @@ li{
         padding: 10px;
         border: none;
         border-radius: 5px;
-        font-size: 1.2rem;
+        font-size: 1rem;
         cursor: pointer;
       }
 
@@ -507,7 +501,7 @@ li{
   }
   
   .links a {
-    padding: 3px;
+    padding: 5px 3px;
     font-size: 0.6rem;
   }
 

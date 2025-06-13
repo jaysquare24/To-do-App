@@ -68,7 +68,7 @@ export const AddTodo = () => {
                         placeholder="Add task description (optional)" 
                     /> <br/><br/>
                     <div className="buttons">
-                        <button type="submit">Add Task</button>
+                        <button type="submit" className="submit-button">Add Task</button>
                         <button type="button" onClick={onCloseModal}>Cancel</button>
                     </div>
                 </form>

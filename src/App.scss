@@ -9,6 +9,7 @@
 body{
   overflow: hidden;
   
+  
 }
 
 
@@ -84,17 +85,21 @@ body.modal-open {
 }
 
 .tasks-status-container {
+  position: sticky;
+  
+ 
+  width: 98%;
   display: flex;
   justify-content: space-between;
-  padding: 13rem 1rem 0 ;
-  height: calc(100vh - 120px - 5rem);          
-  overflow-y: auto;   
+  margin: 13rem auto 0;
+  
   
  .task-section{
    width: 30%;
    padding-bottom: 4rem;
    border: 1px solid white;
-     
+   height: calc(100vh - 120px - 5rem);          
+   overflow-y: auto;      
     
 
   }
@@ -263,7 +268,7 @@ li{
       background-color: #007bff;
       padding: 10px;
       border: none;
-      color: white;
+      font-size: 1rem;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -351,8 +356,8 @@ li{
   .tasks-status-container {
     flex-direction: column;
     align-items: center;
-    margin: 0 auto 0 ;
-    padding: 15rem 0 0;
+    margin: 15rem auto 0 ;
+    width: 100%;
     
    .fallback-message{
       font-size: 1.2rem;
@@ -511,9 +516,7 @@ li{
 
   
   .tasks-status-container {
-      margin: 0 auto 0 ;
-      padding-top: 11rem;
-      height: calc(100vh - 120px - 2rem);
+      margin: 11.5rem auto 0 ;
     .fallback-message{
       font-size: 1rem;
      
@@ -522,6 +525,7 @@ li{
     .task-section {
       width: 100%;
       margin-bottom: 1rem;
+      height: calc(100vh - 120px - 2rem);
       border: 2px solid white;
     }
 
@@ -567,10 +571,10 @@ li{
       }
 
       button{
-        padding: 5px 5px;
+        padding: 7px 7px;
         border-radius: 5px;
-        font-size: 0.7rem;
-        font-weight: normal;
+        font-size: 0.9rem;
+        font-weight: 500;
         
       }
 
@@ -591,6 +595,7 @@ li{
     .todo-summary {
       margin-top: 5px;
       font-size: 0.7rem;
+      text-decoration: underline;
       
     }
 

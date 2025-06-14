@@ -2,11 +2,6 @@ import React,{ useState, useEffect} from 'react';
 import { AddTodo } from './AddTodo';
 import { quotes } from '../features/utilitiesAndData';
 
-
-
-
-
-
 export const Header =() => {
     const randomIndex = Math.floor(Math.random()* quotes.length);
     const [currentQuote, setCurrentQuote] = useState(randomIndex);
@@ -21,10 +16,10 @@ export const Header =() => {
 
     return (
         <header className="header">
-            <AddTodo/>
             <div className="quote-container">
                 <p>{quotes[currentQuote]}</p>
             </div>
+             <AddTodo/>
         </header>
     );
 }

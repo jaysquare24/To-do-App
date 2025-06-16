@@ -55,7 +55,7 @@ body.modal-open {
     margin: 0 auto 0;
     width: 100%;
     padding: 20px;
-    background-color: #007bff;
+    background-color: #0155ad;
     font-size: larger;
     text-align: center;
     font-weight: bold;
@@ -66,7 +66,7 @@ body.modal-open {
   }
 
   .new-task-button:hover {
-    background-color: #0056b3;
+    background-color: #007bff;
   }
 }
 
@@ -92,7 +92,7 @@ body.modal-open {
     text-align: center;
     color: white;
     padding: 10px;
-    background-color: #249836;
+    background-color: #178127;
     margin: 0;
     position: sticky;
     top: 0;
@@ -153,7 +153,7 @@ li{
         border: none;
         padding: 5px 5px;
         border-radius: 2px;
-        background-color: #007bff;
+        background-color: #0155ad;
         color: white;
         font-size: 0.7rem;
         cursor: pointer;
@@ -171,7 +171,7 @@ li{
     }
 
     .todo-buttons button{
-      background-color: #007bff;
+      background-color:#0155ad;
       border: none;
       padding: 7px 5px;      
       border-radius: 2px;
@@ -240,7 +240,7 @@ li{
     justify-content: space-evenly;
 
     button{
-      background-color: #007bff;
+      background-color: #0155ad;
       padding: 10px;
       border: none;
       font-size: 1rem !important;
@@ -251,7 +251,7 @@ li{
     }
 
     button:hover{
-      background-color: #0056b3;
+      background-color: #007bff;
     }
   }
 }
@@ -312,7 +312,7 @@ li{
     text-align: center;
     margin: 0 5px;
     padding: 10px 5px;
-    background-color: #007bff;
+    background-color:#0155ad;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -325,9 +325,9 @@ li{
   }
 
   .link.active {
-    background-color: #0056b3;
+    background-color: #007bff;
     font-weight: 500;
-    scale: 1.02;
+    scale: 1.03;
 
   }
 
@@ -404,6 +404,7 @@ li{
       margin-top: 5px;
       font-size: 1.1rem;
       width: 130px;
+      text-decoration: underline !important;
 
     }
 
@@ -424,7 +425,7 @@ li{
 
     .buttons{
       button{
-        background-color: #007bff;
+        background-color: #0155ad;
         padding: 10px;
         border: none;
         border-radius: 5px;
@@ -481,7 +482,6 @@ li{
   }
 
   .link.active {
-    background-color: #0056b3;
     font-weight: 600;
   }
 
@@ -557,10 +557,10 @@ li{
       
     }
 
-
     .todo-summary {
       margin-top: 5px;
       font-size: 0.7rem;
+      text-decoration: underline !important;
       
     }
 
@@ -580,7 +580,6 @@ li{
       background-color: black;
     }
 
-
     .buttons{
       button{
         padding: 5px;
@@ -591,6 +590,21 @@ li{
     }
     ::placeholder{
       font-size: 0.7rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px){
+
+  .links a {
+    font-size: 0.6rem;
+  }
+
+  li{
+    .task-item{
+      .todo-buttons button{
+        font-size: 0.6rem ;
+      }
     }
   }
 }

@@ -41,20 +41,16 @@ function App() {
    )
   } else{
     
-
   return (
     <BrowserRouter>
-    <div className="App">
-      <Header/>
-      <div className="tasks-status-container">
-        <TodoList/>
-        <TaskInProgress/>
-        <TaskCompleted/>
+      <div className="App">
+        <Header/>
+        <div className="tasks-status-container">
+          <TodoList/>
+          <TaskInProgress/>
+          <TaskCompleted/>
+        </div>
       </div>
-      
-
-      
-    </div>
     </BrowserRouter>
   )
  }

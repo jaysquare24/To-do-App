@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
- export const  Modal= ({ open, children }) => {
+export const  Modal= ({ open, children }) => {
   useEffect(() => {
     if (open) {
       document.body.classList.add("modal-open");

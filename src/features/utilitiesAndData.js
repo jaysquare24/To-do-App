@@ -59,5 +59,6 @@ export const formatTime = (ms) => {
   "Think it. Plan it. Do it! 📋",
   "Stay the course! 🧭",
   "You’re on the right path! 🛤️"
-]
-;
+];
+
+export const priorityList = ["low", "average", "high"];

@@ -1,7 +1,7 @@
-import { Header } from './components/Header';
-import { TodoList } from './components/TodoList';
-import { TaskInProgress } from './components/TaskInProgress';
-import { TaskCompleted } from './components/TaskCompleted';
+import { Header } from './components/header/Header';
+import { TodoList } from './components/main/TodoList';
+import { TaskInProgress } from './components/main/TaskInProgress';
+import { TaskCompleted } from './components/main/TaskCompleted';
 import { MobileLayout } from './components/MobileLayout';
 import React,{ useState, useEffect} from 'react';
 import './App.scss'

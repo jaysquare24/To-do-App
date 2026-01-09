@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react"; 
 import { useSelector } from "react-redux";  
-import { selectTaskCompleted, selectTodos, selectTaskInProgress } from "../features/todoSlice";
-import { formatTime } from "../features/utilitiesAndData";
+import { selectTaskCompleted, selectTodos, selectTaskInProgress, clearTaskCompleted } from "../../features/todoSlice";
+import { formatTime } from "../../features/utilitiesAndData";
+import { useDispatch } from "react-redux";
 
 
 export const TaskCompleted = () => {
     const completedTasks = useSelector(selectTaskCompleted);
     const todos = useSelector(selectTodos);
+    const dispatch = useDispatch();
     const tasksInProgress = useSelector(selectTaskInProgress);
 
     
@@ -37,7 +39,14 @@ export const TaskCompleted = () => {
 
     return (
         <div className="task-section">
-            <h2>Completed Tasks <span>({completedTasks.length}/{totalTasks})</span>{ completedTasks.length >0 && completedTasks.length === totalTasks && (<img src="/resources/icons8-celebrate.gif" className="celebration-gif" alt="celebration gif"/>)}</h2>
+           <div className="sub-header-container">
+                <h2>Completed Tasks <span>({completedTasks.length}/{totalTasks})</span>{ completedTasks.length >0 && completedTasks.length === totalTasks && (<img src="/resources/icons8-celebrate.gif" className="celebration-gif" alt="celebration gif"/>)}</h2>
+                <div className="sub-header-controls">
+                    <button className="clear-list-button" aria-label="Clear List" onClick={() => dispatch(clearTaskCompleted())}> Clear List</button>
+                </div>
+            </div>
+
+            
             {completedTasks.length === 0 ? (
                 <p className="fallback-message">No tasks completed yet.</p>
             ) : (
@@ -52,7 +61,7 @@ export const TaskCompleted = () => {
                                 <div className="task-item2">
                                     <div className="task-time">
                                         <p>Completed at: {task.completedAt}</p>
-                                        <p>Time used: {formatTime(task.endTime - task.startTime)}</p> 
+                                        <p>Time used: {formatTime(task.elapsedTime)}</p> 
                                     </div>
                                     {recentlyCompleted.includes(task.id) && (
                                      <img src="/resources/icons8-celebrate.gif" className="celebration-png" alt="celebration icon"/>

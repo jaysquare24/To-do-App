@@ -11,6 +11,14 @@ body.modal-open {
   overflow: hidden;
 }
 
+p, button{
+ font-family: 'Inter', sans-serif;
+}
+
+h2, h3{
+  font-family: 'Prosto One', sans-serif;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -37,7 +45,7 @@ body.modal-open {
     font-weight: bold;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.92);
-    opacity: 70%;
+    opacity: 80%;
 
   }
 
@@ -91,7 +99,7 @@ body.modal-open {
  .task-section{
    width: 30%;
    padding-bottom: 4rem;
-   border: 1.5px solid rgba(255, 255, 255, 0.541);
+   border: 1.2px solid rgba(255, 255, 255, 0.541);
    height: calc(100vh - 120px - 5rem);          
    overflow-y: auto;      
   }
@@ -117,6 +125,7 @@ body.modal-open {
     margin: auto;
     margin-top: 20px;
     padding: 10px;
+    color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
   }
@@ -131,7 +140,7 @@ body.modal-open {
   position: sticky;
   top: 0;
   z-index: 1; 
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.541);
 
 }
 
@@ -194,8 +203,11 @@ li{
 
     h3{
       flex-basis: 55%;
+      font-weight: 500;
+      font-size: 16px;
       word-break: normal;
       overflow-wrap: break-word;
+      font-family: 'Inter', sans-serif;
     }
 
     .todo-buttons{
@@ -312,7 +324,9 @@ li{
     padding: 10px;
     background-color: black;
     border-radius: 5px;
+    font-family: 'Inter', sans-serif;
   }
+
 
   h3, h2{
     color: black;
@@ -324,12 +338,15 @@ li{
     color: rgba(0, 0, 0, 0.699);
     text-align: left;
     font-weight: 500;
+    font-family: 'Inter', sans-serif;
   }
 
   #priority{
     background-color: black;
     padding: 5px;
     border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
   }
 
   .buttons{
@@ -357,6 +374,7 @@ li{
 
   .edit-form input{
     margin-bottom: 15px;
+    font-family: 'Inter', sans-serif;
   }
 
   button:hover{
@@ -457,7 +475,6 @@ li{
       width: 100%;
       margin-bottom: 1rem;
       padding-bottom: 8rem;
-      border: 2px solid white;
     }
 
     .celebration-gif{
@@ -630,7 +647,6 @@ li{
       width: 100%;
       margin-bottom: 1rem;
       height: calc(100vh - 120px - 2rem);
-      border: 2px solid white;
     }
 
     h2{

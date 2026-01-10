@@ -62,3 +62,5 @@ export const formatTime = (ms) => {
 ];
 
 export const priorityList = ["low", "average", "high"];
+
+export const priorityRanks = {low:1, average:2, high:3};

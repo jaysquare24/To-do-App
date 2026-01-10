@@ -3,6 +3,7 @@ import { useSelector, useDispatch} from "react-redux";
 import { Modal } from "../Modal";
 import { selectTodos, removeTodo, addTaskInProgress, editTodo, clearTodo, searchTodo, selectSearchValue, selectFilteredTodo } from "../../features/todoSlice";
 import { useNavigate } from "react-router-dom";
+import { priorityList } from "../../features/utilitiesAndData";
 
 export const TodoList = () => {
     const todos = useSelector(selectTodos);
@@ -16,20 +17,25 @@ export const TodoList = () => {
     const [showTodoModal, setShowTodoModal] = useState(null);
     const [showEditTodoModal, setShowEditTodoModal] = useState(null);
 
+    
+
     const [editTodoTitle, setEditTodoTitle] = useState("");
     const [editTodoDescription, setEditTodoDescription] = useState("");
+    const [editPriority, setEditPriority] = useState("");
+
 
     const handleEditTodo = (todo) => {
         setShowEditTodoModal(todo.id);
         setEditTodoTitle(todo.title);
         setEditTodoDescription(todo.description);
+        setEditPriority(todo.priority)
        
     }
 
     const handleSubmitEditedTodo = (e, id) => {
         e.preventDefault();
         // Implementation for editing todo
-        dispatch(editTodo({ id, title: editTodoTitle, description: editTodoDescription }));
+        dispatch(editTodo({ id, title: editTodoTitle, description: editTodoDescription, priority:editPriority }));
         onCloseTodoModal();
         setEditTodoTitle("");
         setEditTodoDescription("");
@@ -123,6 +129,15 @@ export const TodoList = () => {
                                         value={editTodoDescription}
                                         onChange={(e) => setEditTodoDescription(e.target.value)}
                                     />
+
+                                    <label htmlFor="priority" className="priority-label">Priority: </label>
+                                    <select id="priority" name="priority" value={editPriority} onChange={(e) => setEditPriority(e.target.value)}>
+                                        {priorityList.map((priorityItem) => (
+                                            <option key={priorityItem} value={priorityItem}>
+                                                {priorityItem}
+                                            </option>
+                                        ))}
+                                    </select> <br/><br/> 
                                     <button type="submit">Save Changes</button>
                                 </form>
                             </Modal>

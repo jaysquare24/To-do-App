@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadItem } from "./storages";
+import { priorityRanks } from "./utilitiesAndData";
 
 
 export const todoSlice = createSlice({
@@ -15,7 +16,11 @@ export const todoSlice = createSlice({
     reducers: {
         addTodo: (state, action) => {
             state.todos.push(action.payload);
-            
+
+            state.todos.sort(
+                (a, b) => priorityRanks[b.priority] - priorityRanks[a.priority]
+            );
+             
         },
         removeTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
@@ -84,7 +89,11 @@ export const todoSlice = createSlice({
             if(editedTodoIndex !== -1){
                 state.todos[editedTodoIndex] = {
                     ...state.todos[editedTodoIndex], ...action.payload
-                }
+                };
+
+                state.todos.sort((a, b) => 
+                    priorityRanks[b.priority] - priorityRanks[a.priority]
+                )
             }
             
         },

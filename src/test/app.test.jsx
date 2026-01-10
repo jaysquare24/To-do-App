@@ -12,10 +12,10 @@ const createState = () => ({
     searchValue: null  
 });
 
-const createTodo1 = () => ({ id: 1, title: "Buy groceries", description: "This is a test todo 1" });
-const createTodo2 = () => ({ id: 2, title: "Clean the house", description: "This is a test todo 2" });
-const createTaskInProgress = (startTime) => ({ id: 1, title: "Buy groceries", description: "This is a test todo 1" , startTime, elapsedTime: 0, isRunning: true});
-const createCompletedTask = () => ({ id: 1, title: "Buy groceries", description: "This is a test todo 1", startTime: null, elapsedTime: Date.now() - 3600000, isRunning: false, completedAt: new Date().toLocaleTimeString()}) ;      
+const createTodo1 = () => ({ id: 1, title: "Buy groceries", description: "This is a test todo 1", priority:"average" });
+const createTodo2 = () => ({ id: 2, title: "Clean the house", description: "This is a test todo 2", priority:"high" });
+const createTaskInProgress = (startTime) => ({ id: 1, title: "Buy groceries", description: "This is a test todo 1" , priority:"average", startTime, elapsedTime: 0, isRunning: true});
+const createCompletedTask = () => ({ id: 1, title: "Buy groceries", description: "This is a test todo 1", priority:"average", startTime: null, elapsedTime: Date.now() - 3600000, isRunning: false, completedAt: new Date().toLocaleTimeString()}) ;      
 
 
 describe ("todoSlice reducer", () => {
@@ -27,12 +27,17 @@ describe ("todoSlice reducer", () => {
     it("should handle addTodo", () => {
 
         //set up
+       const initialState = {
+            ...createState(),
+            todos:[createTodo1()]
+       }
+
         const expectedState = {
-            todos: [createTodo1],
+            todos: [ createTodo2(), createTodo1()],
         }
 
         //exercise
-        const newState = reducer(createState(), addTodo(createTodo1));
+        const newState = reducer(initialState, addTodo(createTodo2()));
 
        //verify
         expect(newState.todos).toEqual(expectedState.todos);
@@ -89,10 +94,7 @@ describe ("todoSlice reducer", () => {
         // mock Date.now
         vi.useFakeTimers()
         vi.setSystemTime(new Date('2025-12-30T00:00:00Z'));
-        //set up
-       
-       
-        const completedTask = { id: 1, title: "Buy groceries", description: "This is a test todo 1", startTime: null, elapsedTime: 3600000, isRunning: false, completedAt: new Date().toLocaleTimeString()};      
+        //set up     
         
         const initialState = {
            ...createState(),
@@ -102,7 +104,9 @@ describe ("todoSlice reducer", () => {
         };
 
         const expectedState = {
-            taskCompleted: [completedTask],
+            taskCompleted: [
+                {...createCompletedTask(), elapsedTime: 3600000, completedAt: new Date().toLocaleTimeString()}
+            ],
         };
           
         //exercise
@@ -119,19 +123,21 @@ describe ("todoSlice reducer", () => {
     it("should handle editTodo", () => {
 
         //set up
+
+        const editedTodo = {...createTodo2(), title: "Test Edited Todo ", description: "This is edited test todo", priority: "low"}
        
 
         const initialState = {
             ...createState(),
-            todos: [createTodo1()],
+            todos: [createTodo2(), createTodo1()],
         };
 
         const expectedState = {
-            todos: [{...createTodo1(), title: "Test Edited Todo ", description: "This is edited test todo"}],
+            todos: [createTodo1(), editedTodo],
         };
 
         //exercise
-        const newState = reducer(initialState, editTodo({title: "Test Edited Todo ", description: "This is edited test todo", id: 1}));
+        const newState = reducer(initialState, editTodo(editedTodo));
 
         //verify
         expect(newState.todos).toEqual(expectedState.todos);

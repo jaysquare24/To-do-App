@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { loadItem } from "./storages";
 import { priorityRanks } from "./utilitiesAndData";
 
+const normalizeText = (text) => text.toLowerCase().replace(/\s+/g, " ").trim(); 
+
 
 export const todoSlice = createSlice({
     name: "todo",
@@ -76,11 +78,9 @@ export const todoSlice = createSlice({
         },
 
         searchTodo: (state, action) => {
-
-            
-            const searchItem = state.todos.filter(item => item.title.trim().toLowerCase().includes(action.payload.trim().toLowerCase()));
-            state.searchValue = action.payload.trim();
-            state.filteredTodo = searchItem;
+            const query = normalizeText(action.payload);
+            state.filteredTodo = state.todos.filter(item =>normalizeText(item.title).includes(query));
+            state.searchValue = action.payload;
         },
 
         editTodo: (state, action) => {

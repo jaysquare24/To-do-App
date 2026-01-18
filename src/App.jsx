@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 900);
     };
 
     handleResize(); // Set initial state
@@ -45,11 +45,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header/>
-        <div className="tasks-status-container">
+        <main className="tasks-status-container">
           <TodoList/>
           <TaskInProgress/>
           <TaskCompleted/>
-        </div>
+        </main>
       </div>
     </BrowserRouter>
   )

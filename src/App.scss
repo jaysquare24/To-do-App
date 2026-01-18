@@ -23,85 +23,116 @@ h2, h3{
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.4);
-  z-index: 3;
+  z-index: 100;
   overflow: hidden;
 }
 
 .header{
-  position: fixed;
-  top:0 ;
-  left: 0;
-  width: 100%;
-  z-index: 2;
+  z-index:10;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+
+
+  .app-title-container{
+    color: #4F46E5;
+    font-size: 12px;
+    font-family: "Inter",sans-serif;
+    flex-basis: 17%;
+   
+
+    img{
+      vertical-align:sub;
+      width: 30px;
+      
+    }
+  }
   
   .quote-container{
-    width: 100%;
-    margin: 0 auto 1rem;
-    padding: 1rem;
-    border: 1px solid white;
-    border-top: none;
+    background-color: #EEF2FF;
+    padding: 16px 6px;
+    border-left: 2px solid #4F46E5;
+    color: #312E81;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 16px;
     font-weight: bold;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.92);
-    opacity: 80%;
-
+    font-family: "Inter",sans-serif;
+    flex-basis: 40%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+   
+    
   }
 
   .header-actions{
     display: flex;
-    justify-content: space-evenly;
+    flex-basis: 26%;
+    justify-content: flex-end;
+    gap:12px;
+    
   }
 
-  .clear-all-button, .new-task-button{
-    flex-basis: 30%;
-    padding: 15px 20px;
-    background-color: #ffffff;
-    font-size: larger;
-    text-align: center;
-    font-weight: bold;
-    color: #000000;
+  .new-task-button, .clear-all-button{
+    background: #4F46E5;
+    color: #ffffff;
+    height: 41.33px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+ 
+  }
+
+  .clear-all-button{
+    background: #ffffff;
+    color: #374151;
+    border: 1px solid #d4d3d394;
+    padding-left: 12px;
   }
 
   .clear-all-button:hover, .new-task-button:hover {
-    background-color: #737373;
-    color: #ffffff;
+    background-color: #EEF2FF;
+    color: #312E81;
     scale: 1.03;
-    border: 1px solid #ffffff94;
+    border: 1px solid #acb5d3;
   }
-}
 
-
-.add-todo-container {
-  box-sizing: border-box;
-  flex-basis: 30%;
-  .new-task-button{
-    width: 100%;
-    height: 100%;
+  .clear-all-button img{
+    vertical-align: middle;
+    width: 19px;
   }
 }
 
 .tasks-status-container {
-  position: fixed;
+  position: static;
   top: 0;
   left: 0;         
   right: 0;
-  width: 98%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 13rem auto 0;
+  margin: 2rem auto 0;
+  padding: 0px 24px;
+  z-index: 1;
   
- .task-section{
-   width: 30%;
-   padding-bottom: 4rem;
-   border: 1.2px solid rgba(255, 255, 255, 0.541);
-   height: calc(100vh - 120px - 5rem);          
-   overflow-y: auto;      
+  .task-section{
+    position: relative;
+    width: 31%;
+    padding-bottom: 4rem;
+    border-radius: 16px;
+    border-top-left-radius: 0px;
+    height: calc(100vh - 120px - 5rem);  
+    box-shadow: 0px 6px 16px rgba(0,0,0,0.06);        
+    overflow-y: auto; 
+    background-color: #ffffff;
+    border: 1.2px solid #b7b7b794;
+    scrollbar-width: thin;
+    
   }
 
   .celebration-gif{
@@ -112,191 +143,300 @@ h2, h3{
 
   .fallback-message{
     text-align: center;
-    color: white;
+    color: #374151;
     padding: 10px;
     margin: auto;
     font-size: 1rem;
   }
 
   .fallback-button{
-    border: 1px solid #ffffff94;
+    border: 1px solid #b7b7b794;
     background: none;
     display: block;
     margin: auto;
     margin-top: 20px;
     padding: 10px;
-    color: #ffffff;
+    color: #374151;
     border-radius: 5px;
     cursor: pointer;
   }
 }
 
 .sub-header-container{
-  text-align: center;
-  color: white;
-  padding: 10px;
-  background-color: #4a537b;
+  border-left: 2px solid #1F2937;
+  color: #1F2937;
+  padding: 20px;
+  background-color: #F9FAFB;
   margin: 0;
   position: sticky;
   top: 0;
-  z-index: 1; 
+  z-index: 5; 
   border-bottom: 1px solid rgba(255, 255, 255, 0.541);
 
-}
+  .item1{
+    display: flex;
+    justify-content: space-between;
 
-h2{
-  opacity: 80%;
-}
+    .clear-list-button{
+      padding: 10px 16px;
+      color: #374151;
+      background: none;
+      border: 1px solid  #b7b7b794;
+      border-radius: 5px;
+      cursor: pointer;
+    
+    }
 
-.sub-header-controls{
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  width: 85%;
-  margin: auto;
-  margin-top: 5px;
+    h2{
+      font-size: 18px;
+    }
 
-  input{
-    width: 52%;
-    border-radius: 5px;
-    padding: 5px 10px;
-    border: 1px solid #ffffff94;
-    background-color: #12141D;
+    span{
+      background-color: #E5E7EB;
+      padding: 2px 8px;
+      color: #4b5563;
+      font-size: 12px;
+      border-radius: 50px;
+      vertical-align: middle;
+    }
   }
 
-  .clear-list-button{
-    width: 90px;
-    padding: 7px 10px;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ffffff94;
+}
+
+.In-progress-header-container{
+  border-left: 2px solid #312E81;
+  background-color: #EEF2FF;
+  color: #312E81;
+
+  .item1{
+    .clear-list-button{
+      border-color:#bac8ff ;
+      color: #312E81;
+    }
+
+    span{
+      background-color: #C7D2FE;
+      padding: 2px 8px;
+      color: #3730A3;
+    }
+  }
+}
+
+.completed-header-container{
+  border-left: 2px solid #14532D;
+  background-color: #F0FDFA;
+  color: #14532D;
+
+  .item1{
+    .clear-list-button{
+      border-color:#a3ecbd ;
+      color: #14532D;
+    }
+
+    span{
+      background-color: #BBF7D0;
+      padding: 2px 8px;
+      color: #166534;
+    }
+  }
+}
+
+.sub-header-container .item2{
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 15px;
+ 
+  input{
+    width: 100%;
     border-radius: 5px;
-    cursor: pointer;
+    padding: 8px 16px 8px 40px;
+    background-color: #ffffff;
+    border: 1px solid #b7b7b794;
+    color: #374151;
+   
   }
 
   .search-icon{
     all:unset;
     position: absolute;
-    right: 5%;
-    top:10%
+    left: 3%;
+    top:11%
   }
 }
 
 li{
-  background-color: #262936;
-  padding:  10px;
+  border: 1px solid  #d4d3d394;
+  padding: 10px 14px;
   list-style: none;
+  border-radius: 8px;
+  width: 95%;
+  margin: auto;
   margin-top: 0.5rem;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.06); 
+  
  
   .task-item{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+ 
+
+    .priority-display{
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 7px;
+      font-weight: 500;
+    }
+
+    .icon{
+      width: 20px; 
+    }
+
+    .time{
+      background-color: #EEF2FF ;
+      color: #4F46E5;
+      padding: 4px 8px;
+      flex-basis: 100px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: "SF Mono", "Fira Code", "Roboto Mono", monospace;
+    }
 
     .task-item2{
       display: flex ;
     }
 
-    h3,p{
-      opacity: 80%;
-    }
-
-    h3{
-      flex-basis: 55%;
-      font-weight: 500;
-      font-size: 16px;
-      word-break: normal;
-      overflow-wrap: break-word;
-      font-family: 'Inter', sans-serif;
-    }
-
     .todo-buttons{
-      flex-basis: 40%;
       display: flex;
-      justify-content: space-between;
+      flex-basis: 70%;
+      gap:20px;
       flex-shrink: 0;
-      align-items: center;
+      align-items: flex-start ;
+      justify-content: flex-end;
 
       .edit-button, .remove-button{
         all: unset;
         cursor: pointer;
+        color: #374151;
+        border: 1px solid #d4d3d394;
+        padding: 2px 8px 2px 5px;
+        font-size: 12px;
+        font-family: "Inter"sans-serif;
+        border-radius: 5px;
+        background-color: #F9FAFB;
       }
-    }
-
-    .task-buttons{
-      text-align: center;
-      display: block;
-
-      button{
-        border: none;
-        padding: 5px 5px;
-        border-radius: 2px;
-        background-color: #ffffff;
-        color: #000000;
-        font-size: 0.7rem;
-        cursor: pointer;
+      
+      button img{
+        vertical-align: middle;
       }
-
-      button:last-of-type{
-        margin-left: 10px;
-      }
-    }
-    
-    .task-time{
-      text-align: center;
-      display: block;
-      color: white;
-      font-size: 0.6rem;
-      font-weight: bold;
-    }
-
-    .todo-buttons  button:nth-of-type(2){
-      background-color:#ffffff;
-      border: none;
-      padding: 7px 5px;      
-      border-radius: 2px;
-      font-size: 0.7rem;
-      color: #000000;
-      cursor: pointer;
-    }
-
-    .task-icon{
-      width: 20px;
-      height: 25px;
-      vertical-align: middle;
-      margin-right: 2px;
-      filter: brightness(0) invert(1); // This makes most icons white
-    }
+      
+    }  
   }
 
-  .description-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 10px;
+  h3{
+    color: #111827;
+    flex-basis: 55%;
+    font-weight: 500;
+    font-size: 16px;
+    word-break: normal;
+    overflow-wrap: break-word;
+    font-family: 'Inter', sans-serif;
+    margin-top: 8px;
   }
 
-  .priority-display{
-    padding: 0 5px;
-    font-size: 12px;
-    border-radius: 7px;
+  .todo-details{
+    margin-bottom: 10px;
   }
 
   .todo-summary {
     margin-top: 2px;
     cursor: pointer;
     font-size: 0.7rem;
+    color: #6B7280;
     width: 100px;
     text-decoration: underline !important;
   }
 
   .description{
-    margin-left: 5px;
     font-size: 0.9rem;
-    color: white;
+    color: #6B7280;
     word-break: normal;
     overflow-wrap: break-word;
      
+  }
+
+  .start-button{
+    width: 100%;
+    background-color: #EEF2FF;
+    color: #4338CA;
+    padding: 8px 0;
+    font-size: 14px;
+    font-family: "Inter",sans-serif;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .task-buttons{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+
+    button{
+      flex-basis: 47%;
+      border: none;
+      padding: 8px 0;
+      border-radius: 5px;
+      background-color: #16A34A;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+}
+
+.in-progress img{
+  vertical-align: sub;
+  margin-right: 4px;
+  width: 16px;
+}
+
+.completed-tasks li{
+  border: 1px solid  #d4d3d394;
+  background-color: #F9FAFB;
+  .task-item{
+    display: block;
+  }
+  h3{
+    margin-top: 0;
+    color: #374151;
+    text-decoration: line-through;
+    border-bottom: 1px solid  #d4d3d394 ;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+
+  img{
+    vertical-align: middle;
+    margin-left: auto;
+    width: 18px;
+  }
+
+  .task-time{
+    display: flex;
+    justify-content: space-between;
+    color: #848b95;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .task-time p span{
+    color: #374151;    
+    font-family: "SF Mono", "Fira Code", "Roboto Mono", monospace;
   }
 }
 
@@ -308,9 +448,9 @@ li{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #f6f7f8f0;
   border-radius: 5px;
-  z-index: 4;
+  z-index: 110;
   text-align: center;
   overflow: hidden;
 
@@ -322,9 +462,11 @@ li{
     width: 100%;
     min-height: 60px;
     padding: 10px;
-    background-color: black;
+    background-color: #ffffff;
+    color: #363636;;
     border-radius: 5px;
     font-family: 'Inter', sans-serif;
+    border: 1.5px solid #95959594;
   }
 
 
@@ -342,10 +484,10 @@ li{
   }
 
   #priority{
-    background-color: black;
+    background-color: #f6f7f8f0;
     padding: 5px;
     border-radius: 5px;
-    color: #ffffff;
+    color: #363636;
     font-family: 'Inter', sans-serif;
   }
 
@@ -385,32 +527,69 @@ li{
 }
 
 @media only screen and (max-width:1200px){
-  .sub-header-controls{
-    width: 100%;
+  .header{
+    .header-actions{
+      flex-basis: 28%;
+    }
   }
 }
-  
+
+@media only screen and (max-width:1112px){
+  .header{
+    .header-actions{
+      flex: 0 1 32%;
+    }
+  }
+
+  li{  
+    .task-item{  
+      .task-time{
+        font-size: 10px;
+        font-weight: bold;
+      }
+   }
+  }
+}
+
 @media only screen and (max-width:1024px){
+  .header{
+    .quote-container{
+      flex-basis: 45%;
+      font-size: 15px;      
+    }
+
+    .header-actions{
+      flex: 0 1 35%;
+    }
+  }
 
   .tasks-status-container{
     .task-section{
       width: 32%;           
     }
   }
+
+  .sub-header-container{
+    padding: 20px 10px;
+    .item1{
+      .clear-list-button{
+        padding: 10px;
+      }
+
+      h2{
+        font-size: 16px;
+      }
+
+      span{
+        font-size: 10px;
+      }
+    }
+  }
   
   li{  
-    .task-item{
-      .todo-buttons {
-        flex-basis: 40%;
-        
-        button {
-          font-size: 0.49rem;
-        }
-      }
-        
-      .task-time{
-        
-        font-size: 0.5rem;
+    .task-item{  
+      .task-time{   
+        font-size: 0.61rem;
         font-weight: bold;
       }
    }
@@ -418,6 +597,18 @@ li{
 }
 
 @media only screen and (max-width:900px) {
+  .header{
+    flex-direction:column ;
+    align-items: flex-start;
+    padding-bottom: 80px;
+
+    .header-actions{
+      position: absolute;
+      right: 24px;
+      width: 80%;
+    }
+    
+  }
    
   .header .quote-container {
     width: 100%;
@@ -427,43 +618,59 @@ li{
   .links {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
     margin: 10rem auto 0 ;
+    z-index: 20;
+    padding: 0 24px;
+    gap:12px;
+
+    span{
+      background-color: #E5E7EB;
+      padding: 2px 8px;
+      color: #4b5563;
+      border-radius: 40px;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
   }
 
   .links a {
     flex: 1;
     text-align: center;
-    margin: 0 5px;
     padding: 10px 5px;
-    background-color:#000000;
-    color: white;
+    color: #374151;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 500;
-    border: 1px solid #ffffff94;
+    border: 1px solid #d4d3d394;
   }
 
   a:hover{
-    scale: 1.02;
+    background-color: #EEF2FF;
+    color: #312E81;
+    scale: 1.03;
+    border: 1px solid #acb5d3;
   }
 
   .link.active {
-    background-color: #ffffffe2;
+    background-color: #312E81;
     font-weight: 500;
     scale: 1.03;
-    color: #000000;
+    color: #EEF2FF;
+
+    span{
+      background-color: #C7D2FE;
+      color: #3730A3;
+    }
   }
 
   .tasks-status-container {
     flex-direction: column;
     align-items: center;
-    margin: 15rem auto 0 ;
     width: 100%;
     
    .fallback-message{
@@ -474,7 +681,7 @@ li{
     .task-section {
       width: 100%;
       margin-bottom: 1rem;
-      padding-bottom: 8rem;
+      padding-bottom: 9rem;
     }
 
     .celebration-gif{
@@ -482,28 +689,18 @@ li{
     }
   }
 
-  .sub-header-controls{
-    width: 50%;      
-
-    input{
-      flex-basis: 62%;
-    }
+  .sub-header-container .item2{
+    width: 70%; 
+    
   }
 
   li{
     padding:  15px 25px;
     margin-top: 1rem;
-    font-size: 1rem;
-  
+    font-size: 1rem;  
     .task-item{
-     .todo-buttons{
-        flex-basis: 33%;
-        justify-content: space-around;        
-      }
-      
      .task-buttons{
         font-size: 1rem;
-
         button{
           padding: 10px 10px;
           border-radius: 5px;
@@ -513,7 +710,7 @@ li{
       }
     
       .task-time{
-        font-size: 1rem;
+        font-size: 0.85rem;
       }
 
      .todo-buttons button{
@@ -561,7 +758,7 @@ li{
     }
     
     ::placeholder{
-      font-size: 1.2rem;
+      font-size: 0.9rem;
     }
   }
 }
@@ -569,12 +766,19 @@ li{
 @media only screen and (max-width:630px){
 
   .header{
+    padding-left: 10px;
+    padding-right: 10px;
+    
     .quote-container{
       font-size: 1.2rem;
     }
-
+     
+    .header-actions{
+      right: 10px;
+    }
+    
     .clear-all-button, .new-task-button{
-      font-size: clamp(13px, 2.5vw, 18px);
+      font-size: clamp(14px, 2.5vw, 18px);
     }
 
     .new-task-button:hover, .clear-all-button:hover{
@@ -582,46 +786,63 @@ li{
     }
   }
 
+  .links{
+    margin: 9.5rem auto 0 ;
+    padding: 0px 10px;
+  }
+
   .links a {
     font-size: clamp(14px, 2.5vw, 18px);
   }
 
-  .sub-header-controls{
-    width: 63%;
-    gap:10px;
+  .sub-header-container .item2{
+    width: 70%; 
+    
+  }
+
+  li{
+    .task-item{
+      .task-time{
+        font-size: 0.8rem
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 480px){
-
-  .sub-header-controls{
-    width: 80%;
-  }
-
+@media only screen and (max-width: 490px){
  .header{
+    align-content: center;
+    padding-bottom: 63px;
+    
+    .app-title-container{
+      font-size: 8px;
+      img{
+        width: 20px;
+      }
+    }
     .quote-container{
       font-size: 0.8rem;
       font-weight: 500;
     }
 
     .header-actions{
-      justify-content: space-between;
-      padding: 0 20px;
+      right: 10px;
+      top:18px;
     }
 
+    
+    
     .new-task-button, .clear-all-button{
-      padding: 12px 15px;
-      flex-basis: 40%;
+      padding: 0px 12px;
+      height: 35px;
+      font-size: clamp(10px, 2.5vw, 18px);
+      font-weight: 600;
+      
     }
 
     .new-task-button:hover {
       background-color: none;
     }
-  }
-
-
- .add-todo-container {
-    flex-basis: 40%; 
   }
 
   .links{
@@ -638,15 +859,14 @@ li{
   }
 
   .tasks-status-container {
-    margin: 11.5rem auto 0 ;
+    padding: 0 18px;
     .fallback-message{
       font-size: 1rem;     
     }
     
     .task-section {
       width: 100%;
-      margin-bottom: 1rem;
-      height: calc(100vh - 120px - 2rem);
+      height: calc(100vh - 120px - 3rem);
     }
 
     h2{
@@ -658,20 +878,19 @@ li{
     }
   }
 
+  .sub-header-container .item2{
+    width: 100%; 
+    
+  }
+
   li{
     padding:  10px 10px;
     margin-top: 0.5rem;
     font-size: 0.9rem;
   
-    .task-item{
-      .todo-buttons{
-        flex-basis: 40%;
-        justify-content: space-around; 
-      }
-      
+    .task-item{      
       .task-buttons{
         font-size: 0.8rem;
-
         button{
           padding: 5px 5px;
           border-radius: 5px;
@@ -681,7 +900,7 @@ li{
       }
       
       .task-time{
-        font-size: 0.6rem;
+        font-size: 0.7rem;
       }
 
       .todo-buttons button{
@@ -714,7 +933,6 @@ li{
       width: 100%;
       min-height: 40px;
       padding: 10px;
-      background-color: black;
     }
 
     .buttons{
@@ -732,22 +950,28 @@ li{
 @media only screen and (max-width: 365px){
 
   .header{
-    .header-actions{
-      padding: 0 10px;
+    .app-title-container{
+      font-size: 6px;
     }
 
     .new-task-button, .clear-all-button{
-      padding: 12px 12px;
-      flex-basis: 47%;
+      padding: 10px 12px;
+      
     }
   }
 
- .add-todo-container {
-    flex-basis: 47%; 
+  .links{
+    span{
+      padding: 2px 4px;
+    }
   }
 
   .links a {
     font-size: 0.6rem;
+  }
+
+  .tasks-status-container{
+    padding: 0 10px;
   }
 
   li{
@@ -755,7 +979,34 @@ li{
       .todo-buttons button{
         font-size: 0.6rem ;
       }
+
+      .task-time{
+        font-size: 0.6rem;
+      }
     }
   }
 }
 
+
+@media only screen and (max-width:333px){
+  .header{
+    align-content: center;
+    padding-bottom: 63px;
+    
+    .app-title-container{
+      font-size: 4px;
+      img{
+        width: 10px;
+      }
+    }
+
+    .header-actions{
+      top:10px
+    }
+  }
+
+  .links{
+    margin: 7.2rem auto 0 ;
+  }
+
+}

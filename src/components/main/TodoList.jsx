@@ -64,9 +64,11 @@ export const TodoList = () => {
     return (
         <div className="todo-list task-section">
             <div className="sub-header-container">
-                <h2>Todo List <span>({todos.length})</span></h2>
-                <div className="sub-header-controls">
-                    <button className="clear-list-button" aria-label="Clear List" onClick={() => dispatch(clearTodo())}> Clear List</button>
+                <div className="item1"> 
+                  <h2>Todo <span>{todos.length}</span></h2>
+                  <button className="clear-list-button" aria-label="Clear List" onClick={() => dispatch(clearTodo())}> Clear List</button>
+                </div>
+                <div className="item2">
                     <input 
                     type="text" 
                     placeholder="Search tasks..." 
@@ -88,23 +90,29 @@ export const TodoList = () => {
                   : displayTodos.length === 0? <p className="fallback-message">No tasks available. Add a new task!</p>
                   : displayTodos.map((todo) => (
                     <li key={todo.id}>
-                        
-        
+
                         <div className="task-item">
-                            <h3><span><img src="/resources/icons8-task-50.png" className="task-icon" alt="task-icon"/></span>{todo.title}</h3>
+                            <p className="priority-display" 
+                            style={{backgroundColor: `${todo.priority === "Average"? "#FEF9C3" : todo.priority === "High"? "#FEE2E2" : "#DCFCE7"}`,
+                                   color: `${todo.priority === "Average"? "#A16207" : todo.priority === "High"? "#B91C1C" : "#15803D"}`}}
+                            > 
+                             {todo.priority}
+                            </p>
+
                             <div className="todo-buttons">
-                                <button className="edit-button" onClick={() => handleEditTodo(todo)}><img src="/resources/icons8-edit-pencil.svg" className="edit-icon" alt="edit-icon"/></button>
-                                <button onClick={() => onShowTodoModal(todo.id)}>Start</button>
-                                <button className="remove-button" onClick={() => handleRemoveTodo(todo.id)}><img src="/resources/icons8-cancel.svg" className="remove-icon" alt="remove-icon"/></button>
+                                <button className="edit-button" onClick={() => handleEditTodo(todo)}><img src="/resources/icons8-edit-pencil.svg" className="edit-icon icon" alt="edit-icon"/> Edit</button>
+                                <button className="remove-button" onClick={() => handleRemoveTodo(todo.id)}><img src="/resources/icons8-delete.svg" className="remove-icon icon" alt="remove-icon"/> Remove</button>
                             </div>
                         </div>
-                        <div className="description-container">   
-                            <details className="todo-details">
-                                <summary className="todo-summary">Description</summary>
-                                <p className="description">{todo.description}</p>
-                            </details>
-                            <p className="priority-display" style={{backgroundColor: `${todo.priority === "average"? "#d2b721ff" : todo.priority === "high"? "#FF4500" : "#7af57aff"}`}}> {todo.priority}</p>
-                        </div>
+                
+                        <h3>{todo.title}</h3>
+
+                        <details className="todo-details">
+                            <summary className="todo-summary">Description</summary>
+                            <p className="description">{todo.description}</p>
+                        </details>
+                        
+                        <button className="start-button" onClick={() => onShowTodoModal(todo.id)}>Start Task</button>
                         
                         {showTodoModal ===todo.id && (
                             <Modal open={showTodoModal === todo.id} onClose={onCloseTodoModal}>

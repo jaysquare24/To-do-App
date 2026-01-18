@@ -52,7 +52,7 @@ export const AddTodo = () => {
     return (
         <div className="add-todo-container">
            <button onClick={onShowModal} className="new-task-button">
-            Add a New Task
+            + Add a New Task
            </button>
             {showModal && (
             <Modal open={showModal} className="modal">  

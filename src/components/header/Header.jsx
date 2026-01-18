@@ -21,6 +21,9 @@ export const Header =() => {
 
     return (
         <header className="header">
+            <div className="app-title-container">
+                <h1 className="app-title"><img src="/resources/icons8-test-60.png" alt="TaskFlow Logo" className="app-logo"/>TaskFlow</h1>
+            </div>
             <div className="quote-container">
                 <p>{quotes[currentQuote]}</p>
             </div>
@@ -31,7 +34,7 @@ export const Header =() => {
                     dispatch(clearAll());
                     navigate("/todos");
                 }}
-                >Clear all Task</button>
+                > <img src="/resources/icons8-delete.svg" alt="Clear all tasks" className="clear-all-icon"/> Clear all Task</button>
             </div>  
         </header>
     );

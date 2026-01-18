@@ -1,12 +1,13 @@
-export const formatTime = (ms) => {
+export const formatTime = (ms, display) => {
     const totalSeconds = Math.floor(ms / 1000);
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
-    if (hours > 0) {
-        return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    if(display){
+      return  hours < 1 ? `${minutes}m ${seconds}s` : `${hours}h ${minutes}m`   
     }
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    
 };
 
  export const quotes =[
@@ -61,6 +62,6 @@ export const formatTime = (ms) => {
   "You’re on the right path! 🛤️"
 ];
 
-export const priorityList = ["low", "average", "high"];
+export const priorityList = ["Low", "Average", "High"];
 
 export const priorityRanks = {low:1, average:2, high:3};

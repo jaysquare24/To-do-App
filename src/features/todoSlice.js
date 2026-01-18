@@ -18,7 +18,7 @@ export const todoSlice = createSlice({
             state.todos.push(action.payload);
 
             state.todos.sort(
-                (a, b) => priorityRanks[b.priority] - priorityRanks[a.priority]
+                (a, b) => priorityRanks[b.priority.toLowerCase()] - priorityRanks[a.priority.toLowerCase()]
             );
              
         },
@@ -92,7 +92,7 @@ export const todoSlice = createSlice({
                 };
 
                 state.todos.sort((a, b) => 
-                    priorityRanks[b.priority] - priorityRanks[a.priority]
+                    priorityRanks[b.priority.toLowerCase()] - priorityRanks[a.priority.toLowerCase()]
                 )
             }
             

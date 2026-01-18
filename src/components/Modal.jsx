@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export const  Modal= ({ open, children }) => {
   useEffect(() => {
@@ -11,10 +12,11 @@ export const  Modal= ({ open, children }) => {
   }, [open]);
 
   if (!open) return null;
-  return (
+  return createPortal (
     <>
       <div className="modal-overlay" />
       <div className="modal">{children}</div>
-    </>
+    </>,
+    document.body
   );
 }

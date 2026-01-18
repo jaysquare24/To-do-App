@@ -114,7 +114,7 @@ h2, h3{
 }
 
 .tasks-status-container {
-  position: static;
+  position: fixed;
   top: 0;
   left: 0;         
   right: 0;
@@ -126,7 +126,6 @@ h2, h3{
   z-index: 1;
   
   .task-section{
-    position: relative;
     width: 31%;
     padding-bottom: 4rem;
     border-radius: 16px;
@@ -864,6 +863,7 @@ li{
 
   .tasks-status-container {
     padding: 0 18px;
+    margin: 13rem auto 0;
     .fallback-message{
       font-size: 1rem;     
     }

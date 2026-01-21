@@ -55,33 +55,41 @@ export const AddTodo = () => {
             + Add a New Task
            </button>
             {showModal && (
-            <Modal open={showModal} className="modal">  
+            <Modal open={showModal} className="modal">
+                <button className="top-close-modal-button" onClick={onCloseModal} aria-label="Close Modal" role="button">
+                    <img src="/resources/Bell.svg" alt="Close modal"/>
+                </button>
+                <h2 className="modal-header">Create Task</h2>
+                   
                 <form onSubmit={handleAddTodo} >
+                    <label htmlFor="todoTitle" className="todo-title-label">Task Title: </label>
                     <input
                         type="text"
                         value={todoTitle}
                         onChange={(e) => setTodoTitle(e.target.value)}
                         placeholder="Task title"
-                    /> <br/> <br/>
+                    /> 
+                    <label htmlFor="todoDescription" className="todo-description-label">Task Description: </label>
                     <textarea
                         rows="4"
                         type="text"
                         value={todoDescription}
                         onChange={(e) => setTodoDescription(e.target.value)}
-                        placeholder="Task description (optional)" 
-                    /> <br/>
-                    
+                        placeholder="Enter description (optional)" 
+                    /> 
                     <label htmlFor="priority" className="priority-label">Priority: </label>
-                    <select id="priority" name="priority" value={priority} onChange={(e) => setPriority(e.target.value)}>
+                    <div className="priority-container" name="priority" >
                         {priorityList.map((priorityItem) => (
-                            <option key={priorityItem} value={priorityItem}>
+                            <p key={priorityItem} 
+                                onClick={() => setPriority(priorityItem)}
+                                className={`priority-item ${priority === priorityItem ? "selected-priority" : ""}`}>
                                 {priorityItem}
-                            </option>
+                            </p>
                         ))}
-                    </select> <br/><br/> 
+                    </div>
                     <div className="buttons">
                         <button type="button" onClick={onCloseModal}>Cancel</button>
-                        <button type="submit">Add Task</button>
+                        <button type="submit">Create Task</button>
                     </div>
                 </form>
             </Modal>

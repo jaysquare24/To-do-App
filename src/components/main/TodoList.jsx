@@ -115,18 +115,25 @@ export const TodoList = () => {
                         <button className="start-button" onClick={() => onShowTodoModal(todo.id)}>Start Task</button>
                         
                         {showTodoModal ===todo.id && (
-                            <Modal open={showTodoModal === todo.id} onClose={onCloseTodoModal}>
-                                <h3>Are you sure you want to start this task?</h3>
+                            <Modal open={showTodoModal === todo.id} onClose={onCloseTodoModal} className="modal">
+                                <button className="top-close-modal-button" onClick={onCloseTodoModal} aria-label="Close Modal" role="button">
+                                   <img src="/resources/Bell.svg" alt="Close modal"/>
+                                </button>
+                                <h2 className="notice-header"><img src="/resources/exclamation.svg" alt="notice exclamation icon"/> Notice</h2>
+                                <p className="notice-text">Are you sure you want to start this task? You can always pause and resume once the timer has started.</p>
                                 <div className="buttons">
-                                    <button onClick={() => handleAddTaskInProgress(todo.id)}>Yes</button>
-                                    <button onClick={onCloseTodoModal}>No</button>
+                                    <button onClick={onCloseTodoModal}>Close</button>
+                                    <button onClick={() => handleAddTaskInProgress(todo.id)}>Start Task</button>
                                 </div>
                             </Modal>
                         )}
 
                         {showEditTodoModal === todo.id &&(
                             <Modal open={showEditTodoModal === todo.id} onClose={onCloseTodoModal}>
-                                <h2>Edit Task</h2>
+                                <button className="top-close-modal-button" onClick={onCloseTodoModal} aria-label="Close Modal" role="button">
+                                   <img src="/resources/Bell.svg" alt="Close modal"/>
+                                </button>
+                                <h2 className="modal-header">Edit Task</h2>
                                 <form onSubmit={(e) => handleSubmitEditedTodo(e, todo.id)} className="edit-form">
                                     <input
                                         type="text"
@@ -139,14 +146,18 @@ export const TodoList = () => {
                                     />
 
                                     <label htmlFor="priority" className="priority-label">Priority: </label>
-                                    <select id="priority" name="priority" value={editPriority} onChange={(e) => setEditPriority(e.target.value)}>
+                                   <div className="priority-container" name="priority" >
                                         {priorityList.map((priorityItem) => (
-                                            <option key={priorityItem} value={priorityItem}>
+                                            <p key={priorityItem} 
+                                                onClick={() => setEditPriority(priorityItem)}
+                                                className={`priority-item ${editPriority === priorityItem ? "selected-priority" : ""}`}>
                                                 {priorityItem}
-                                            </option>
+                                            </p>
                                         ))}
-                                    </select> <br/><br/> 
+                                    </div>
+                                    <div className="buttons">
                                     <button type="submit">Save Changes</button>
+                                    </div>
                                 </form>
                             </Modal>
                         )}
